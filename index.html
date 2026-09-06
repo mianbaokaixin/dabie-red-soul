@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#081e46">
+  <meta name="description" content="大别红魂·新县导览：红色印记、绿水青山、古韵文化与茶香新县。">
+  <title>大别红魂·新县导览</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-label="大别红魂">
+        <span class="brand-dot"></span>
+        <strong>大别红魂·新县导览</strong>
+      </div>
+      <span class="entry-pill" id="entryPill">网址进入</span>
+    </header>
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="nav-item active" data-tab="home"><span>⌂</span><small>首页</small></button>
+      <button class="nav-item" data-tab="red"><span>旗</span><small>红色印记</small></button>
+      <button class="nav-item" data-tab="green"><span>山</span><small>绿水青山</small></button>
+      <button class="nav-item" data-tab="ancient"><span>村</span><small>古韵文化</small></button>
+      <button class="nav-item" data-tab="tea"><span>茶</span><small>茶香新县</small></button>
+    </nav>
+    <main id="app" tabindex="-1">
+      <section class="hero panel" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">红色记忆 · 山水古村 · 茶香新县</p>
+          <h1 id="heroTitle">沿着足迹，走进新县</h1>
+          <p class="hero-text">从红色起点出发，穿过山水、古村与茶园，认识大别山精神在新县的现实回响。</p>
+          <p class="access-note">手机可直接访问，也可通过 NFC 近场进入</p>
+          <div class="hero-insights" aria-label="网站导览概况">
+            <span><strong>14</strong><small>导览点位</small></span>
+            <span><strong>4</strong><small>主题类别</small></span>
+            <span><strong>地图</strong><small>一键查看</small></span>
+          </div>
+        </div>
+        <div class="pcb-orbit" aria-label="《大别红魂》PCB正反面示意">
+          <img src="assets/pcb-front.png" alt="《大别红魂》PCB正面设计图">
+          <img src="assets/pcb-back.png" alt="《大别红魂》PCB背面设计图">
+        </div>
+      </section>
+      <section class="quick-grid" aria-label="主题入口">
+        <button class="quick-card red" data-tab="red"><span>红</span><strong>红色印记</strong><small>革命历史与人物</small></button>
+        <button class="quick-card green" data-tab="green"><span>绿</span><strong>绿水青山</strong><small>大别山生态风光</small></button>
+        <button class="quick-card ancient" data-tab="ancient"><span>古</span><strong>古韵文化</strong><small>田铺大塆与古村</small></button>
+        <button class="quick-card tea" data-tab="tea"><span>茶</span><strong>茶香新县</strong><small>茶园与茶文化</small></button>
+      </section>
+      <section class="destination-section" aria-labelledby="destinationTitle">
+        <div class="section-heading"><div><p class="eyebrow">全域文旅</p><h2 id="destinationTitle">新县值得去的地方</h2></div><span class="section-index">精选目的地</span></div>
+        <div class="destination-grid" id="destinationGrid"></div>
+      </section>
+      <section class="route-panel panel" id="routePanel" aria-labelledby="routeTitle">
+        <div class="section-heading"><div><p class="eyebrow">游客导览</p><h2 id="routeTitle">怎么游新县</h2></div><span class="section-index">01 / 04</span></div>
+        <div class="route-list">
+          <button class="route-step active" data-route="0"><span>01</span><div><strong>看红色历史</strong><small>博物馆与烈士陵园</small></div></button>
+          <button class="route-step" data-route="1"><span>02</span><div><strong>访人物故里</strong><small>许世友将军故里</small></div></button>
+          <button class="route-step" data-route="2"><span>03</span><div><strong>逛古村落</strong><small>田铺大塆</small></div></button>
+          <button class="route-step" data-route="3"><span>04</span><div><strong>赏山水茶香</strong><small>生态与茶文化</small></div></button>
+        </div>
+        <div class="route-detail" id="routeDetail"></div>
+      </section>
+      <section class="content-section" id="contentSection" aria-labelledby="contentTitle">
+        <div class="section-heading"><div><p class="eyebrow">新县·红绿古茶</p><h2 id="contentTitle">红色印记</h2></div><span class="section-index">导览点位</span></div>
+        <div class="point-list" id="pointList"></div>
+      </section>
+      <footer class="site-footer">
+        <strong>大别红魂·新县导览</strong>
+        <p>导览内容依据政府公开资料整理。参观安排如有变化，请以景区及有关部门最新公告为准。</p>
+      </footer>
+    </main>
+  </div>
+  <dialog class="sight-dialog" id="sightDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head">
+      <div><p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2></div>
+      <button class="dialog-close" id="dialogClose" aria-label="关闭景点介绍">×</button>
+    </div>
+    <div class="dialog-location" id="dialogLocation"></div>
+    <p class="dialog-map-note" id="dialogMapNote"></p>
+    <section><h3>基本概况</h3><p id="dialogOverview"></p></section>
+    <section><h3 id="dialogStoryTitle">历史与文化</h3><p id="dialogHistory"></p></section>
+    <section><h3>游览看点</h3><ul id="dialogHighlights"></ul></section>
+    <p class="dialog-note">参观安排可能调整，出发前请以景区或有关部门最新公告为准。</p>
+    <div class="dialog-actions">
+      <a class="map-button" id="dialogMap" target="_blank" rel="noopener">打开地图</a>
+      <a class="source-button" id="dialogSource" target="_blank" rel="noopener">资料来源</a>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
