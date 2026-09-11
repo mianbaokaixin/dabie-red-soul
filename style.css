@@ -98,6 +98,37 @@ button:focus-visible, a:focus-visible { outline: 3px solid #f0c64d99; outline-of
   padding-bottom: 84px;
 }
 
+.friendship-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 11px clamp(18px, 4vw, 48px);
+  color: #fff3bd;
+  background: linear-gradient(100deg, #061936 0%, #0b3767 48%, #102b54 100%);
+  border-bottom: 1px solid #f0c64d4d;
+  text-align: center;
+}
+.friendship-banner::before,
+.friendship-banner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: min(11vw, 92px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f0c64d99);
+}
+.friendship-banner::before { left: 18px; }
+.friendship-banner::after { right: 18px; transform: rotate(180deg); }
+.friendship-banner p {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: .86rem;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: .025em;
+}
+
 .topbar {
   height: 72px;
   padding: 0 clamp(18px, 4vw, 48px);
@@ -427,6 +458,10 @@ h2 { margin: 0; font-size: clamp(1.55rem, 2.5vw, 2.15rem); line-height: 1.2; }
 
 @media (max-width: 640px) {
   .app-shell { padding-bottom: 82px; }
+  .friendship-banner { padding: 9px 16px; }
+  .friendship-banner::before,
+  .friendship-banner::after { display: none; }
+  .friendship-banner p { font-size: .78rem; line-height: 1.65; letter-spacing: 0; }
   .topbar { height: 64px; }
   .brand-mark strong { font-size: .92rem; }
   .hero { min-height: 0; grid-template-columns: 1fr; gap: 0; padding-bottom: 10px; }
