@@ -168,6 +168,19 @@ const routeData = [
 const $ = (selector) => document.querySelector(selector);
 const mapUrl = (query) => `https://uri.amap.com/search?keyword=${encodeURIComponent(query)}`;
 
+function acknowledgeEntryNotice() {
+  const notice = $("#entryNotice");
+  const siteContent = $("#siteContent");
+  notice.classList.add("is-closing");
+  document.body.classList.remove("notice-open");
+  siteContent.removeAttribute("inert");
+  siteContent.removeAttribute("aria-hidden");
+  window.setTimeout(() => {
+    notice.hidden = true;
+    $("#app").focus({ preventScroll: true });
+  }, 240);
+}
+
 function detailButton(id, label = "历史与概况") {
   return `<button class="detail-button" data-detail="${id}">${label}</button>`;
 }
@@ -257,6 +270,8 @@ $("#dialogClose").addEventListener("click", () => $("#sightDialog").close());
 $("#sightDialog").addEventListener("click", (event) => {
   if (event.target === $("#sightDialog")) $("#sightDialog").close();
 });
+$("#entryNoticeButton").addEventListener("click", acknowledgeEntryNotice);
+window.addEventListener("load", () => $("#entryNoticeButton").focus());
 
 if (new URLSearchParams(location.search).get("source") === "nfc") $("#entryPill").textContent = "NFC进入";
 renderRoute(0);

@@ -8,8 +8,15 @@
   <title>大别红魂·新县导览</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="app-shell">
+<body class="notice-open">
+  <div class="entry-notice" id="entryNotice" role="dialog" aria-modal="true" aria-labelledby="entryNoticeText">
+    <div class="entry-notice-card">
+      <span class="entry-notice-mark" aria-hidden="true"></span>
+      <p class="entry-notice-text" id="entryNoticeText">该网站由合肥工业大学仪器学院“碧血丰碑凝大别，青春长征绘新篇”团队独立制作</p>
+      <button class="entry-notice-button" id="entryNoticeButton" type="button">我已知晓</button>
+    </div>
+  </div>
+  <div class="app-shell" id="siteContent" inert aria-hidden="true">
     <header class="topbar">
       <div class="brand-mark" aria-label="大别红魂">
         <span class="brand-dot"></span>

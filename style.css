@@ -23,8 +23,71 @@ body {
   font-size: 16px;
   line-height: 1.65;
 }
+body.notice-open { overflow: hidden; }
 button, a { font: inherit; }
 button:focus-visible, a:focus-visible { outline: 3px solid #f0c64d99; outline-offset: 3px; }
+
+.entry-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(145deg, #051736e8, #092f62e8);
+  backdrop-filter: blur(12px);
+  transition: opacity .24s ease, visibility .24s ease;
+}
+.entry-notice.is-closing { opacity: 0; visibility: hidden; }
+.entry-notice-card {
+  width: min(640px, 100%);
+  padding: clamp(34px, 7vw, 58px) clamp(24px, 7vw, 54px);
+  text-align: center;
+  border: 1px solid #ffffff52;
+  border-radius: 26px;
+  background: linear-gradient(155deg, #ffffff, #f3f7fc);
+  box-shadow: 0 32px 90px #020b1e8c;
+}
+.entry-notice-mark {
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin: 0 auto 26px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+}
+.entry-notice-text {
+  max-width: 520px;
+  margin: 0 auto 32px;
+  color: var(--navy);
+  font-size: clamp(1.08rem, 2.8vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: .025em;
+}
+.entry-notice-button {
+  min-width: 150px;
+  min-height: 48px;
+  padding: 10px 28px;
+  color: #0966b7;
+  border: 2px solid #1687c8;
+  border-radius: 12px;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.entry-notice-button:hover {
+  color: white;
+  background: #1687c8;
+  box-shadow: 0 10px 24px #1687c83b;
+  transform: translateY(-1px);
+}
+.entry-notice-button:focus-visible { outline-color: #1687c880; }
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-notice, .entry-notice-button { transition: none; }
+}
 
 .app-shell {
   width: min(100%, 1180px);
